@@ -1,0 +1,9 @@
+---
+- name: Exercies 1c
+  hosts: arista:cisco
+  gather_facts: False
+
+- tasks:
+    - name: multi group task
+      ansible.builtin.debug:
+        msg: Hello World

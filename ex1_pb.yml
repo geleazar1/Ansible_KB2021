@@ -1,0 +1,14 @@
+---
+- name: NXOS Commands
+  hosts: nxos
+  gather_facts: False
+
+  tasks:
+    - name: get version
+      cisco.nxos.nxos_command:
+        commands: show version
+      register: output
+  
+    - ansible.builtin.debug:
+        var: output
+      

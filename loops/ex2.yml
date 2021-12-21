@@ -1,0 +1,17 @@
+---
+- name: Loops ex2
+  hosts: local
+  gather_facts: False
+  vars:
+    sites:
+      - sf
+      - la
+      - dallas
+      - nyc
+      - miami
+  tasks:
+    - name: Test looping through sites using with_items and when to get to nyc
+      ansible.builtin.debug:
+        msg: "NYC Site: {{ item }}"
+      with_items: "{{ sites }}"
+      when: "item == 'nyc'"

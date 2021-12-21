@@ -1,0 +1,10 @@
+---
+- name: first playbook
+  hosts: localhost
+  gather_facts: False
+
+- tasks:
+    - name: first task
+      ansible.builtin.debug:
+        msg: "It Works"
+
