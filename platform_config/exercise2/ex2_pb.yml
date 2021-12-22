@@ -1,0 +1,11 @@
+---
+- name: Global config
+  hosts: cisco:arista:nxos:juniper
+  gather_facts: True
+  tasks:
+    - name: Global config
+      vars:
+          # cli_config requres netowkr_cli (Juniper defaults to netconf in inventory)
+          ansible_connetion: network_cli
+      ansible.connectcommon.cli_config:
+        config: "{{ lookup('template', 'templates/{{ ansible_network_os }}/global.j2') }}"
