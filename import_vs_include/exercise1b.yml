@@ -1,0 +1,12 @@
+---
+- name: Exercise1b
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Loops, Include, Dynamic Name 
+      ansible.builtin.include_tasks: "{{ my_tasks }}"
+      loop:
+        - 192.168.1.1
+        - 192.168.2.1
+        - 192.168.3.1
+        - 192.168.4.1

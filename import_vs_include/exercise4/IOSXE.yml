@@ -1,0 +1,8 @@
+- name: IOS-XE config devices
+  cisco.ios.ios_config:
+    lines:
+      - "ip name-server {{ dns_server1 }} {{ dns_server2 }}"
+      - "ip domain name {{ domain_name }}"
+      - "ntp server {{ ntp_server1 }}"
+      - "ntp server {{ ntp_server2 }}"
+  #when: ansible_facts.net_iostype is defined and ansible_facts.net_iostype == "IOS-XE"

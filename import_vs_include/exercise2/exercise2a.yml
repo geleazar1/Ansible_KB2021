@@ -1,0 +1,14 @@
+---
+- name: Exercise1a
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: include tasks
+      ansible.builtin.import_tasks: subtask1.yml
+      # loops are not allowed with import so move the loop to the subtask1.yml file
+      #loop:
+        #- 192.168.1.1
+        #- 192.168.2.1
+        #- 192.168.3.1
+        #- 192.168.4.1
+

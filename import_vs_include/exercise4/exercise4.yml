@@ -1,0 +1,28 @@
+---
+- name: Exercise3 using import and conditional
+  hosts: cisco:nxos:arista
+  gather_facts: True
+  tasks:
+    - name: Import IOS tasks
+      ansible.builtin.import_tasks: IOS_task.yml
+      when: ansible_facts.net_iostype == "IOS"
+      tags:
+        - ios
+     
+    - name: Import IOS-XE tasks
+      ansible.builtin.import_tasks: IOSXE.yml
+      when: ansible_facts.net_iostype == "IOS-XE"
+      tags: 
+        - ios-xe 
+  
+    - name: Import NXOS tasks
+      ansible.builtin.import_tasks: NXOS_task.yml
+      when: 'ansible_network_os == "NXOS"'
+      tags:
+        - nxos
+
+    - name: Import Arista tasks
+      ansible.builtin.import_tasks: eos_task.yml
+      when: 'ansible_network_os  == "eos"'
+      tags:
+        - eos

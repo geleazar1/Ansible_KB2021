@@ -1,0 +1,14 @@
+---
+- name: "Exercise 1c"
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: call subtask prints
+      #ansible.builtin.include_tasks: subtask2.yml
+      ansible.builtin.import_tasks: subtask2.yml
+      #tags: 
+        #- M1
+        #- M2
+        #- M3
+       # always
+

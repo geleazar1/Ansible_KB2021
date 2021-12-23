@@ -1,0 +1,12 @@
+---
+- name: Exercise3 using import and conditional
+  hosts: cisco
+  gather_facts: True
+  tasks:
+    - name: Import IOS tasks
+      ansible.builtin.import_tasks: IOS_task.yml
+      when: ansible_facts.net_iostype == "IOS"
+     
+    - name: Import IOS-XE tasks
+      ansible.builtin.import_tasks: IOSXE.yml
+      when: ansible_facts.net_iostype == "IOS-XE" 
